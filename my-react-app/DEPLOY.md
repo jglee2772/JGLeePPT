@@ -33,10 +33,24 @@ npm run deploy
 ```
 
 ### 이후 업데이트
-코드를 수정한 후:
-```bash
-npm run deploy
-```
+코드를 수정한 후 **두 가지 모두** 실행해야 합니다:
+
+1. **소스 코드 저장** (main 브랜치)
+   ```bash
+   git add .
+   git commit -m "변경 사항 설명"
+   git push origin main
+   ```
+
+2. **사이트 배포** (gh-pages 브랜치)
+   ```bash
+   npm run deploy
+   ```
+
+**중요**: 
+- `git push origin main`: 소스 코드를 GitHub에 저장 (버전 관리)
+- `npm run deploy`: 빌드된 파일을 gh-pages 브랜치에 배포 (실제 사이트 업데이트)
+- 두 작업 모두 해야 소스 코드도 저장되고 사이트도 업데이트됩니다!
 
 ## 5. 접속 확인
 

@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="portfolio">
       {/* 헤더 */}
-      <header id="about" className="header" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${pptbgimg})` }}>
+      <header id="about" className="header" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${pptbgimg})` }}>
         <div className="header-content">
           <h2>👋 About Me</h2>
           <div className="about-content">
