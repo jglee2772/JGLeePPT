@@ -21,6 +21,14 @@ function App() {
 
   return (
     <div className="portfolio">
+      {/* 네비게이션 */}
+      <nav className="nav">
+        <a href="#about">소개</a>
+        <a href="#skills">기술</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#contact">연락처</a>
+      </nav>
+
       {/* 헤더 */}
       <header id="about" className="header" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${pptbgimg})` }}>
         <div className="header-content">
@@ -46,14 +54,6 @@ function App() {
           </div>
         </div>
       </header>
-
-      {/* 네비게이션 */}
-      <nav className="nav">
-        <a href="#about">소개</a>
-        <a href="#skills">기술</a>
-        <a href="#projects">프로젝트</a>
-        <a href="#contact">연락처</a>
-      </nav>
 
       {/* 메인 콘텐츠 */}
       <main className="main">
