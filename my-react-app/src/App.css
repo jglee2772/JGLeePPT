@@ -7,20 +7,27 @@
 /* 헤더 */
 .header {
   background: #667eea;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   text-align: center;
+  position: relative;
 }
 
-.header h1 {
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.header h2 {
   font-size: 2.5rem;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
   font-weight: 700;
-}
-
-.subtitle {
-  font-size: 1.3rem;
-  margin: 0.8rem 0 0;
+  color: white;
 }
 
 /* 네비게이션 */
@@ -75,11 +82,22 @@
 }
 
 /* 소개 섹션 */
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
 .about-content p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #555;
-  max-width: 700px;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.header .about-content p {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* 스킬 섹션 */
@@ -134,19 +152,37 @@
 }
 
 .info-card {
-  background: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
   font-weight: 600;
   font-size: 1.1rem;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
-  transition: background 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .info-card:hover {
-  background: #5a67d8;
+  background: linear-gradient(135deg, #5a67d8 0%, #6b4a8f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.contact-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.3rem;
+}
+
+.contact-value {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 /* 프로젝트 섹션 */
@@ -242,6 +278,14 @@
   margin-bottom: 1.5rem;
 }
 
+.detail-content > div {
+  margin-bottom: 1.5rem;
+}
+
+.detail-content > div:last-child {
+  margin-bottom: 0;
+}
+
 .detail-content p {
   color: #666;
   line-height: 1.8;
@@ -252,6 +296,12 @@
   font-weight: 700;
   color: #667eea;
   font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.detail-content > div > p:not(:first-of-type):not(:last-of-type) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.8rem;
 }
 
 @keyframes slideDown {
@@ -282,18 +332,8 @@
 }
 
 .contact-links a {
-  background: #667eea;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 12px;
   text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s ease;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
-}
-
-.contact-links a:hover {
-  background: #5a67d8;
+  color: white;
 }
 
 /* 푸터 */
