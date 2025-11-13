@@ -4,12 +4,14 @@ import cinemaImage from './assets/mgcinema cut.PNG'
 import chatfoodImage from './assets/chatfood cut.PNG'
 import mytestwebImage from './assets/mytestweb cut.PNG'
 import pptbgimg from './assets/pptbgimg.PNG'
+import insimimg from './assets/insim cut.PNG'
 
 function App() {
   const [showDetails, setShowDetails] = useState({
     cinema: false,
     chatfood: false,
-    mytestweb: false
+    mytestweb: false,
+    insim: false
   })
 
   const toggleDetails = (project) => {
@@ -110,7 +112,7 @@ function App() {
             <div className="project-card">
               <h3>영화관 사이트</h3>
               <p className="project-period">2024/07 ~ 2024/10</p>
-              <p className="project-period">담당 역할 : 팀장</p>
+              <p className="project-period">담당 역할 : 팀장  /  팀원7명</p>
               <p className="project-period">참여도 : 60%</p>
               <p><a href="https://mycinema-production.up.railway.app" target="_blank" rel="noopener noreferrer">https://mycinema-production.up.railway.app</a></p>
               <img src={cinemaImage} alt="시네마 컷" className="project-image" />
@@ -130,7 +132,7 @@ function App() {
                   </div>
                   <div>
                   <p>구현 기능</p>
-                    <p>로그인/로그아웃/회원가입/마이페이지/고객센터</p>
+                    <p>로그인/로그아웃/회원가입/마이페이지/고객센터/railway베포</p>
                     <p><strong>영화 링크</strong><br/>영화 차트 / 상세 정보 / 감독 및 출연진 / 스틸컷 / 평점 / 리뷰 / 상영 시간</p>
                     <p><strong>극장 링크</strong><br/>날짜별 상영 스케줄 / 여러 부가 정보 동적 구현 / 스케줄 링크</p>
                     <p><strong>예매 링크</strong><br/>순차적 예매 / 실시간 좌석 예매 현황 / 가상 결제</p>
@@ -147,9 +149,45 @@ function App() {
               )}
             </div>
             <div className="project-card">
+              <h3>면접 시뮬레이션 사이트<br/>(개발중)</h3>
+              <p className="project-period">2025/11 ~ 2025/12</p>
+              <p className="project-period">담당 역할 : 팀장  /  팀원5명</p>
+              <p className="project-period">참여도 : (개발중)</p>
+              <p><a href="http://13.125.180.201/" target="_blank" rel="noopener noreferrer">http://13.125.180.201/</a></p>
+              <img src={insimimg} alt="면접시뮬사이트 컷" className="project-image" />
+              <button className="detail-btn" onClick={() => toggleDetails('insim')}>
+                {showDetails.insim ? '▲ 세부사항 닫기' : '▼ 세부사항 보기'}
+              </button>
+              {showDetails.insim && (
+                <div className="detail-content">
+                  <div className="project-tags">
+                    <span>HTML/CSS</span>
+                    <span>React</span>
+                    <span>JavaScript/Axios</span>
+                    <span>Python</span>
+                    <span>Django REST Framework</span>
+                    <span>MySQL</span>
+                    <span>VScode</span>
+                    <span>AWS</span>
+                  </div>
+                  <div>
+                  <p>구현 기능</p>
+                    <p>기본정보/면접 시뮬레이션/인적성검사/이력서작성/AWS베포</p>
+                    <p><strong>면접 시뮬레이션 페이지</strong><br/>렌덤 면접관 배정 / 특정직업 면접진행 / 진행 후 피드백</p>
+                    <p><strong>인적성 검사 페이지</strong><br/>개인성향 파악 테스트 / 결과에 맞는 직업 추천</p>
+                    <p><strong>이력서 작성 페이지</strong><br/>일반적인 이력서 작성 진행 / 실시간 AI 작성 피드백</p>
+                  </div>
+                  <div>
+                    <p>개선점 및 현황</p>
+                    <p>현재 개발 중</p>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="project-card">
               <h3>음식 추천 챗 사이트</h3>
               <p className="project-period">2024/10 ~ 2024/10</p>
-              <p className="project-period">담당 역할 : 팀장</p>
+              <p className="project-period">담당 역할 : 팀장  /  팀원3명</p>
               <p className="project-period">참여도 : 80%</p>
               <p><a href="https://chatfood-spring-boot.onrender.com" target="_blank" rel="noopener noreferrer">https://chatfood-spring-boot.onrender.com</a></p>
               <img src={chatfoodImage} alt="챗푸드 컷" className="project-image" />
@@ -175,6 +213,7 @@ function App() {
                     <p>음식 추천 챗봇과의 대화</p>
                     <p>추천 완료 후 관련 음식 실시간 위치 기반 지도 표시</p>
                     <p>Spring 서버(메인)와 Flask 서버(API화) 2개 서버 연동</p>
+                    <p>Render베포</p>
                   </div>
                   <div>
                     <p>개선점 및 현황</p>
@@ -213,6 +252,7 @@ function App() {
                     <p><strong>관리자 페이지</strong><br/>회원 정보 관리 / 회원가입 승인</p>
                     <p>회원 간 실시간 채팅 기능</p>
                     <p>모바일 게임 관련 뽑기 시뮬레이션</p>
+                    <p>Render베포</p>
                   </div>
                   <div>
                     <p>개선점 및 현황</p>
