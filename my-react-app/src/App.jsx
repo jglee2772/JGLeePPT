@@ -371,6 +371,21 @@ function App() {
           </div>
         </section>
 
+        <section id="lastc" className="section">
+          <h2>💬 마무리 멘트</h2>
+          <div className="closing-content">
+            <p>
+              다양한 프로젝트를 통해 풀스택 개발 역량을 쌓아왔으며, 팀 프로젝트에서 팀장으로서 
+              협업과 소통의 중요성을 경험했습니다. 문제 해결 과정에서 끊임없이 학습하고 개선하는 자세로 
+              성장해왔습니다.
+            </p>
+            <p>
+              앞으로도 지속적인 학습을 통해 기술 역량을 강화하고, 취업 후에도 학점은행제를 통해 
+              기본 역량을 보완하며 전문성을 더욱 높여나가겠습니다.
+            </p>
+          </div>
+        </section>
+
         {/* 연락처 섹션 */}
         <section id="contact" className="section">
           <h2>📧 Contact</h2>

@@ -100,6 +100,24 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* 마무리 한마디 섹션 */
+.closing-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.closing-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.closing-content p:last-child {
+  margin-bottom: 0;
+}
+
 /* 스킬 섹션 */
 .skills-container {
   display: grid;
