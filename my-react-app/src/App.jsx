@@ -96,6 +96,7 @@ function App() {
                 <div className="skill-card">Python</div>
                 <div className="skill-card">Flask</div>
                 <div className="skill-card">Node.js</div>
+                <div className="skill-card">Django</div>
               </div>
             </div>
             <div className="skill-category">
