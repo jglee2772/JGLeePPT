@@ -364,7 +364,7 @@ function App() {
                 <div className="detail-content">
                   <div>
                     <p>문제 해결 과정</p>
-                    <p>문제 해결 내용을 여기에 작성하세요</p>
+                    <p></p>
                   </div>
                 </div>
               )}
