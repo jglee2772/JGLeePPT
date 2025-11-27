@@ -14,8 +14,22 @@ function App() {
     insim: false
   })
 
+  const [showProblemSolving, setShowProblemSolving] = useState({
+    cinema: false,
+    chatfood: false,
+    mytestweb: false,
+    insim: false
+  })
+
   const toggleDetails = (project) => {
     setShowDetails(prev => ({
+      ...prev,
+      [project]: !prev[project]
+    }))
+  }
+
+  const toggleProblemSolving = (project) => {
+    setShowProblemSolving(prev => ({
       ...prev,
       [project]: !prev[project]
     }))
@@ -82,6 +96,7 @@ function App() {
                 <div className="skill-card">Python</div>
                 <div className="skill-card">Flask</div>
                 <div className="skill-card">Node.js</div>
+                <div className="skill-card">Django</div>
               </div>
             </div>
             <div className="skill-category">
@@ -147,6 +162,36 @@ function App() {
                   </div>
                 </div>
               )}
+              <button className="detail-btn" onClick={() => toggleProblemSolving('cinema')}>
+                {showProblemSolving.cinema ? '▲ 문제 해결 과정 닫기' : '▼ 문제 해결 과정 보기'}
+              </button>
+              {showProblemSolving.cinema && (
+                <div className="detail-content">
+                  <div>
+                    <p>문제 해결 과정</p>
+                    <p><strong>1. 영화 상세 정보 로딩 지연 문제</strong><br/>
+                    초기에는 영화 상세 정보를 페이지 로드 시 모두 불러와 성능 저하 발생<br/>
+                    → 해결: AJAX를 활용한 지연 로딩(Lazy Loading) 구현으로 필요한 데이터만 동적으로 로드</p>
+                    <p><strong>2. 실시간 좌석 예매 동기화 오류</strong><br/>
+                    여러 사용자가 동시에 같은 좌석을 예매할 수 있는 문제 발생<br/>
+                    → 해결: 데이터베이스 트랜잭션과 낙관적 잠금(Optimistic Locking) 적용하여 동시성 제어</p>
+                    <p><strong>3. 영화 차트 정렬 및 필터링 기능 오작동</strong><br/>
+                    jQuery 이벤트 핸들러가 중복 바인딩되어 필터링이 제대로 동작하지 않음<br/>
+                    → 해결: 이벤트 위임(Event Delegation) 패턴 적용 및 이벤트 리스너 중복 방지 로직 추가</p>
+                    <p><strong>4. 영화 평점 및 리뷰 실시간 업데이트 문제</strong><br/>
+                    새로 작성된 리뷰가 즉시 반영되지 않는 문제<br/>
+                    → 해결: AJAX 폴링(Polling) 방식에서 WebSocket으로 전환하여 실시간 업데이트 구현</p>
+                    <p><strong>5. 스틸컷 이미지 로딩 최적화</strong><br/>
+                    많은 스틸컷 이미지로 인한 페이지 로딩 속도 저하<br/>
+                    → 해결: 이미지 지연 로딩(Lazy Loading) 및 썸네일 생성으로 초기 로딩 시간 단축</p>
+                    <p><strong>기타 소통 문제</strong><br/>
+                    각 기능 속성명 난잡화 및 중복 등등<br/>
+                    → 해결: 관련 페이지 프론트 담당이 class 및 id 이름 사전 생성 후 관련 기능 담당자에게 전달<br/><br/>
+                    DB 데이터의 일관성과 연관성 부족 및 데이터의 중복성 증가<br/>
+                    → 해결: 모든 DB 테이블을 p-id와f-id 연결화 및 정리 후 중복컬럼 제거</p>
+                  </div>
+                </div>
+              )}
             </div>
             <div className="project-card">
               <h3>면접 시뮬레이션 사이트<br/>(개발중)</h3>
@@ -180,6 +225,31 @@ function App() {
                   <div>
                     <p>개선점 및 현황</p>
                     <p>현재 개발 중</p>
+                  </div>
+                </div>
+              )}
+              <button className="detail-btn" onClick={() => toggleProblemSolving('insim')}>
+                {showProblemSolving.insim ? '▲ 문제 해결 과정 닫기' : '▼ 문제 해결 과정 보기'}
+              </button>
+              {showProblemSolving.insim && (
+                <div className="detail-content">
+                  <div>
+                    <p>문제 해결 과정</p>
+                    <p><strong>1. React와 Django REST Framework 간 CORS 오류</strong><br/>
+                    프론트엔드(React)와 백엔드(Django) 서버 간 통신 시 CORS 정책으로 인한 요청 차단 발생<br/>
+                    → 해결: Django의 django-cors-headers 미들웨어 설정 및 허용할 Origin 명시하여 CORS 문제 해결</p>
+                    <p><strong>2. 면접관 랜덤 배정 알고리즘 개선</strong><br/>
+                    초기에는 단순 랜덤 배정으로 사용자 경험 저하 및 중복 배정 문제 발생<br/>
+                    → 해결: 사용자 이력 및 직업 유형을 고려한 가중치 기반 랜덤 배정 알고리즘 구현</p>
+                    <p><strong>3. AI 피드백 응답 지연 문제</strong><br/>
+                    이력서 작성 시 AI 피드백 API 호출이 동기적으로 처리되어 사용자 대기 시간 증가<br/>
+                    → 해결: 비동기 처리 및 로딩 상태 표시, 부분 피드백 제공으로 사용자 경험 개선</p>
+                    <p><strong>4. AWS 배포 시 환경 변수 관리</strong><br/>
+                    로컬과 프로덕션 환경의 설정 차이로 인한 배포 오류 발생<br/>
+                    → 해결: 환경 변수를 AWS Systems Manager Parameter Store로 관리하여 보안성과 유지보수성 향상</p>
+                    <p><strong>5. 인적성 검사 결과 저장 및 분석 최적화</strong><br/>
+                    대량의 검사 결과 데이터 처리 시 성능 저하 발생<br/>
+                    → 해결: 미해결상태</p>
                   </div>
                 </div>
               )}
@@ -224,6 +294,31 @@ function App() {
                   </div>
                 </div>
               )}
+              <button className="detail-btn" onClick={() => toggleProblemSolving('chatfood')}>
+                {showProblemSolving.chatfood ? '▲ 문제 해결 과정 닫기' : '▼ 문제 해결 과정 보기'}
+              </button>
+              {showProblemSolving.chatfood && (
+                <div className="detail-content">
+                  <div>
+                    <p>문제 해결 과정</p>
+                    <p><strong>1. Spring Boot와 Flask 서버 간 통신 오류</strong><br/>
+                    두 서버 간 API 통신 시 타임아웃 및 연결 불안정 문제 발생<br/>
+                    → 해결: RestTemplate의 타임아웃 설정 조정 및 재시도 로직(Retry Mechanism) 구현으로 안정성 향상</p>
+                    <p><strong>2. 챗봇 응답 지연 및 타임아웃 문제</strong><br/>
+                    Flask 서버의 AI 챗봇 API 응답 시간이 길어 사용자 대기 시간 증가<br/>
+                    → 해결: 비동기 처리 및 WebSocket 도입, 진행 상태 표시로 사용자 경험 개선</p>
+                    <p><strong>3. 위치 기반 지도 API 연동 오류</strong><br/>
+                    추천된 음식점의 위치 정보를 지도에 표시하는 과정에서 좌표 변환 오류 발생<br/>
+                    → 해결: 좌표계 변환 로직 추가 및 지오코딩 API 오류 처리 강화</p>
+                    <p><strong>4. PostgreSQL 데이터베이스 연결 풀 관리</strong><br/>
+                    동시 접속자 증가 시 데이터베이스 연결 부족으로 인한 오류 발생<br/>
+                    → 해결: HikariCP 연결 풀 설정 최적화 및 연결 수 모니터링으로 안정성 확보</p>
+                    <p><strong>5. Render 배포 시 빌드 실패 문제</strong><br/>
+                    Spring Boot와 Flask 서버를 동시에 배포하는 과정에서 의존성 충돌 발생<br/>
+                    → 해결: 각 서버를 별도 서비스로 분리 배포 및 환경 변수 분리 관리로 해결</p>
+                  </div>
+                </div>
+              )}
             </div>
             <div className="project-card">
               <h3>간단개발 개인 사이트</h3>
@@ -262,7 +357,33 @@ function App() {
                   </div>
                 </div>
               )}
+              <button className="detail-btn" onClick={() => toggleProblemSolving('mytestweb')}>
+                {showProblemSolving.mytestweb ? '▲ 문제 해결 과정 닫기' : '▼ 문제 해결 과정 보기'}
+              </button>
+              {showProblemSolving.mytestweb && (
+                <div className="detail-content">
+                  <div>
+                    <p>문제 해결 과정</p>
+                    <p></p>
+                  </div>
+                </div>
+              )}
             </div>
+          </div>
+        </section>
+
+        <section id="lastc" className="section">
+          <h2>💬 마무리 멘트</h2>
+          <div className="closing-content">
+            <p>
+              다양한 프로젝트를 통해 풀스택 개발 역량을 쌓아왔으며, 팀 프로젝트에서 팀장으로서 
+              협업과 소통의 중요성을 경험했습니다. 문제 해결 과정에서 끊임없이 학습하고 개선하는 자세로 
+              성장해왔습니다.
+            </p>
+            <p>
+              앞으로도 지속적인 학습을 통해 기술 역량을 강화하고, 취업 후에도 학점은행제를 통해 
+              기본 역량을 보완하며 전문성을 더욱 높여나가겠습니다.
+            </p>
           </div>
         </section>
 
