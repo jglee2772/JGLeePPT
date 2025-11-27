@@ -186,7 +186,7 @@ function App() {
             </div>
             <div className="project-card">
               <h3>음식 추천 챗 사이트</h3>
-              <p className="project-period">2024/10 ~ 2024/10</p>
+              <p className="project-period">2025/10 ~ 2025/10</p>
               <p className="project-period">담당 역할 : 팀장  /  팀원3명</p>
               <p className="project-period">참여도 : 80%</p>
               <p><a href="https://chatfood-spring-boot.onrender.com" target="_blank" rel="noopener noreferrer">https://chatfood-spring-boot.onrender.com</a></p>
