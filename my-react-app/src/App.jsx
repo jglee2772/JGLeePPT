@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import './App.css'
-import cinemaImage from './assets/mgcinema cut.PNG'
-import cinemaImage2 from './assets/mgcinema cut2.png'
-import chatfoodImage from './assets/chatfood cut.PNG'
-import chatfoodImage2 from './assets/chatfood cut2.png'
-import mytestwebImage from './assets/mytestweb cut.PNG'
-import mytestwebImage2 from './assets/mytestweb cut2.png'
+import cinemaImage from './assets/mgcinema_cut.PNG'
+import cinemaImage2 from './assets/mgcinema_cut2.png'
+import chatfoodImage from './assets/chatfood_cut.PNG'
+import chatfoodImage2 from './assets/chatfood_cut2.png'
+import mytestwebImage from './assets/mytestweb_cut.PNG'
+import mytestwebImage2 from './assets/mytestweb_cut2.png'
 import pptbgimg from './assets/pptbgimg.PNG'
-import insimimg from './assets/insim cut.png'
-import insimimg2 from './assets/insim cut2.png'
+import insimimg from './assets/insim_cut.png'
+import insimimg2 from './assets/insim_cut2.png'
 
 function App() {
   const [showDetails, setShowDetails] = useState({
