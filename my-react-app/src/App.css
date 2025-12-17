@@ -205,9 +205,9 @@
 
 /* 프로젝트 섹션 */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   margin-top: 1rem;
 }
 
@@ -218,28 +218,61 @@
   padding: 1.8rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: border-color 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-card-expanded {
+  flex: 0 0 auto;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.4s ease-in-out;
+  background-color: #f9f9f9;
+  border-left: 2px solid #e0e0e0;
+  padding: 0;
+}
+
+.project-card-expanded.open {
+  width: 500px;
+  padding: 1.2rem;
+  overflow-y: auto;
+  max-height: 600px;
 }
 
 .project-card:hover {
   border-color: #667eea;
 }
 
-.project-card h3 {
+.project-card-main h3 {
   color: #667eea;
   margin-bottom: 0.8rem;
   font-size: 1.4rem;
+}
+
+.project-images {
+  display: flex;
+  gap: 1rem;
+  margin: 0.8rem 0;
 }
 
 .project-image {
   width: 100%;
   max-width: 100%;
   height: 220px;
-  /* object-fit: cover */
+  object-fit: cover;
   border-radius: 8px;
-  margin: 0.8rem 0;
+  flex: 1;
 }
 
-.project-card p {
+.project-card-main p {
   color: #666;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -275,9 +308,13 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   transition: background 0.3s ease;
   font-size: 0.95rem;
+}
+
+.detail-btn:first-of-type {
+  margin-top: 1rem;
 }
 
 .detail-btn:hover {
@@ -285,11 +322,22 @@
 }
 
 .detail-content {
-  margin-top: 1.2rem;
   padding: 1.2rem;
-  background-color: #f9f9f9;
+  background-color: transparent;
   border-radius: 8px;
-  animation: slideDown 0.3s ease-out;
+  animation: slideRight 0.4s ease-out;
+  height: 100%;
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .detail-content .project-tags {
@@ -403,7 +451,31 @@
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    flex-direction: column;
+  }
+  
+  .project-card-expanded {
+    width: 100% !important;
+    border-left: none;
+    border-top: 2px solid #e0e0e0;
+    max-height: none;
+  }
+  
+  .project-card-expanded.open {
+    width: 100% !important;
+  }
+  
+  .project-images {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .project-image {
+    height: 180px;
   }
 }
 
